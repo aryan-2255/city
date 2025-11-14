@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart City Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <h1>🌆 Smart City Dashboard</h1>
+            <div class="header-info">
+                <div class="city-selector">
+                    <label for="citySelect">Select City:</label>
+                    <select id="citySelect">
+                        <option value="london">London</option>
+                        <option value="newyork">New York</option>
+                        <option value="tokyo">Tokyo</option>
+                        <option value="paris">Paris</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="sydney">Sydney</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="singapore">Singapore</option>
+                        <option value="dubai">Dubai</option>
+                        <option value="losangeles">Los Angeles</option>
+                        <option value="chicago">Chicago</option>
+                        <option value="toronto">Toronto</option>
+                        <option value="berlin">Berlin</option>
+                        <option value="madrid">Madrid</option>
+                        <option value="rome">Rome</option>
+                        <option value="amsterdam">Amsterdam</option>
+                        <option value="barcelona">Barcelona</option>
+                        <option value="seoul">Seoul</option>
+                        <option value="beijing">Beijing</option>
+                        <option value="shanghai">Shanghai</option>
+                        <option value="hongkong">Hong Kong</option>
+                        <option value="bangkok">Bangkok</option>
+                        <option value="istanbul">Istanbul</option>
+                        <option value="moscow">Moscow</option>
+                        <option value="saopaulo">São Paulo</option>
+                        <option value="mexicocity">Mexico City</option>
+                    </select>
+                </div>
+                <div class="last-updated">
+                    <span id="lastUpdated">Loading...</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Grid -->
+        <div class="dashboard-grid">
+            <!-- Weather Section -->
+            <div class="card weather-card">
+                <div class="card-header">
+                    <h2>🌤️ Weather Information</h2>
+                    <span class="status-indicator" id="weatherStatus"></span>
+                </div>
+                <div class="card-content">
+                    <div class="weather-main">
+                        <div class="temperature">
+                            <span id="temperature">--</span>°C
+                        </div>
+                        <div class="weather-desc">
+                            <span id="weatherDesc">Loading...</span>
+                        </div>
+                    </div>
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Humidity</span>
+                            <span class="detail-value" id="humidity">--%</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Wind Speed</span>
+                            <span class="detail-value" id="windSpeed">-- m/s</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Pressure</span>
+                            <span class="detail-value" id="pressure">-- hPa</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Feels Like</span>
+                            <span class="detail-value" id="feelsLike">--°C</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Air Quality Section -->
+            <div class="card air-quality-card">
+                <div class="card-header">
+                    <h2>🌍 Air Quality Index</h2>
+                    <span class="status-indicator" id="aqiStatus"></span>
+                </div>
+                <div class="card-content">
+                    <div class="aqi-main">
+                        <div class="aqi-value" id="aqiValue">
+                            <span class="aqi-number">--</span>
+                            <span class="aqi-label" id="aqiLabel">Loading...</span>
+                        </div>
+                    </div>
+                    <div class="pollutants-grid">
+                        <div class="pollutant-item">
+                            <span class="pollutant-name">PM2.5</span>
+                            <span class="pollutant-value" id="pm25">-- µg/m³</span>
+                        </div>
+                        <div class="pollutant-item">
+                            <span class="pollutant-name">PM10</span>
+                            <span class="pollutant-value" id="pm10">-- µg/m³</span>
+                        </div>
+                        <div class="pollutant-item">
+                            <span class="pollutant-name">O₃</span>
+                            <span class="pollutant-value" id="o3">-- µg/m³</span>
+                        </div>
+                        <div class="pollutant-item">
+                            <span class="pollutant-name">NO₂</span>
+                            <span class="pollutant-value" id="no2">-- µg/m³</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Energy Consumption -->
+            <div class="card energy-card">
+                <div class="card-header">
+                    <h2>⚡ Energy Consumption</h2>
+                </div>
+                <div class="card-content">
+                    <canvas id="energyChart"></canvas>
+                    <div class="energy-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Current Load</span>
+                            <span class="stat-value" id="energyLoad">8,456 MW</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Peak Today</span>
+                            <span class="stat-value" id="energyPeak">9,234 MW</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Traffic Density -->
+            <div class="card traffic-card">
+                <div class="card-header">
+                    <h2>🚗 Traffic Density</h2>
+                </div>
+                <div class="card-content">
+                    <canvas id="trafficChart"></canvas>
+                    <div class="traffic-stats">
+                        <div class="traffic-zone">
+                            <span class="zone-name">Downtown</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%; background: #ef4444;"></div>
+                            </div>
+                            <span class="zone-level">High</span>
+                        </div>
+                        <div class="traffic-zone">
+                            <span class="zone-name">Suburbs</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%; background: #f59e0b;"></div>
+                            </div>
+                            <span class="zone-level">Medium</span>
+                        </div>
+                        <div class="traffic-zone">
+                            <span class="zone-name">Industrial</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 25%; background: #10b981;"></div>
+                            </div>
+                            <span class="zone-level">Low</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Waste Management -->
+            <div class="card waste-card">
+                <div class="card-header">
+                    <h2>♻️ Waste Management</h2>
+                </div>
+                <div class="card-content">
+                    <canvas id="wasteChart"></canvas>
+                    <div class="waste-stats">
+                        <div class="waste-item">
+                            <span>Recycling Rate</span>
+                            <strong>67%</strong>
+                        </div>
+                        <div class="waste-item">
+                            <span>Daily Collection</span>
+                            <strong>2,340 tons</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Temperature Trend -->
+            <div class="card trend-card">
+                <div class="card-header">
+                    <h2>📊 Temperature Trend (24h)</h2>
+                </div>
+                <div class="card-content">
+                    <canvas id="tempTrendChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <p>Smart City Dashboard | Real-time Data Integration</p>
+            <div class="api-status">
+                <span>APIs: </span>
+                <span class="api-badge" id="weatherApi">Weather ✓</span>
+                <span class="api-badge" id="airQualityApi">Air Quality ✓</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Fixed Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <div class="nav-icon">🏠</div>
+            <span class="nav-label">Home</span>
+        </a>
+        <a href="map.html" class="nav-item">
+            <div class="nav-icon">🗺️</div>
+            <span class="nav-label">Map</span>
+        </a>
+        <a href="dashboard.html" class="nav-item active">
+            <div class="nav-icon">📊</div>
+            <span class="nav-label">Data</span>
+        </a>
+        <a href="charts.html" class="nav-item">
+            <div class="nav-icon">📈</div>
+            <span class="nav-label">Charts</span>
+        </a>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

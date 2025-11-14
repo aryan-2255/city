@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charts - Smart City Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="charts.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <h1>📈 Analytics & Charts</h1>
+            <div class="header-info">
+                <div class="city-selector">
+                    <label for="citySelect">Select City:</label>
+                    <select id="citySelect">
+                        <option value="london">London</option>
+                        <option value="newyork">New York</option>
+                        <option value="tokyo">Tokyo</option>
+                        <option value="paris">Paris</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="sydney">Sydney</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="singapore">Singapore</option>
+                        <option value="dubai">Dubai</option>
+                        <option value="losangeles">Los Angeles</option>
+                        <option value="chicago">Chicago</option>
+                        <option value="toronto">Toronto</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <!-- Chart Controls -->
+        <div class="chart-controls">
+            <button class="control-btn active" data-view="all">All Charts</button>
+            <button class="control-btn" data-view="weather">Weather</button>
+            <button class="control-btn" data-view="energy">Energy</button>
+            <button class="control-btn" data-view="traffic">Traffic</button>
+            <button class="control-btn" data-view="environment">Environment</button>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="charts-grid">
+            <!-- Temperature Trend Chart -->
+            <div class="chart-card weather-chart" data-category="weather">
+                <div class="chart-card-header">
+                    <h3>🌡️ Temperature Trend (7 Days)</h3>
+                    <button class="chart-expand">⛶</button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="tempChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Humidity Chart -->
+            <div class="chart-card weather-chart" data-category="weather">
+                <div class="chart-card-header">
+                    <h3>💧 Humidity Levels</h3>
+                    <button class="chart-expand">⛶</button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="humidityChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Energy Consumption Chart -->
+            <div class="chart-card energy-chart" data-category="energy">
+                <div class="chart-card-header">
+                    <h3>⚡ Energy Consumption Pattern</h3>
+                    <button class="chart-expand">⛶</button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="energyConsumptionChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Traffic Flow Chart -->
+            <div class="chart-card traffic-chart" data-category="traffic">
+                <div class="chart-card-header">
+                    <h3>🚗 Traffic Flow Analysis</h3>
+                    <button class="chart-expand">⛶</button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="trafficFlowChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Air Quality Chart -->
+            <div class="chart-card environment-chart" data-category="environment">
+                <div class="chart-card-header">
+                    <h3>🌍 Air Quality Index (AQI)</h3>
+                    <button class="chart-expand">⛶</button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="aqiChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Pollutants Comparison -->
+            <div class="chart-card environment-chart" data-category="environment">
+                <div class="chart-card-header">
+                    <h3>🏭 Pollutants Comparison</h3>
+                    <button class="chart-expand">⛶</button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="pollutantsChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Wind Speed Chart -->
+            <div class="chart-card weather-chart" data-category="weather">
+                <div class="chart-card-header">
+                    <h3>💨 Wind Speed Pattern</h3>
+                    <button class="chart-expand">⛶</button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="windSpeedChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Peak Hours Analysis -->
+            <div class="chart-card traffic-chart" data-category="traffic">
+                <div class="chart-card-header">
+                    <h3>⏰ Peak Hours Distribution</h3>
+                    <button class="chart-expand">⛶</button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="peakHoursChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Stats -->
+        <div class="summary-stats">
+            <div class="summary-card">
+                <div class="summary-icon">📊</div>
+                <div class="summary-content">
+                    <h4>Total Data Points</h4>
+                    <p class="summary-value">2,456</p>
+                </div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-icon">🔄</div>
+                <div class="summary-content">
+                    <h4>Last Update</h4>
+                    <p class="summary-value" id="lastUpdate">--</p>
+                </div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-icon">✅</div>
+                <div class="summary-content">
+                    <h4>Data Accuracy</h4>
+                    <p class="summary-value">98.5%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fixed Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <div class="nav-icon">🏠</div>
+            <span class="nav-label">Home</span>
+        </a>
+        <a href="map.html" class="nav-item">
+            <div class="nav-icon">🗺️</div>
+            <span class="nav-label">Map</span>
+        </a>
+        <a href="dashboard.html" class="nav-item">
+            <div class="nav-icon">📊</div>
+            <span class="nav-label">Data</span>
+        </a>
+        <a href="charts.html" class="nav-item active">
+            <div class="nav-icon">📈</div>
+            <span class="nav-label">Charts</span>
+        </a>
+    </nav>
+
+    <script src="charts.js"></script>
+</body>
+</html>
+

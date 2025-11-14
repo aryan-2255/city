@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map View - Smart City Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="map.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <h1>🗺️ Global City Map</h1>
+            <div class="header-info">
+                <p class="map-subtitle">Explore cities around the world</p>
+            </div>
+        </header>
+
+        <!-- Map View Container -->
+        <div class="map-view-container">
+            <div class="map-sidebar">
+                <h2>Available Cities</h2>
+                <div class="city-search">
+                    <input type="text" id="mapCitySearch" placeholder="Search city..." class="map-search-input">
+                </div>
+                <div class="city-list" id="cityList">
+                    <!-- Cities will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <div class="map-content">
+                <!-- World Map Visualization -->
+                <div class="world-map-container">
+                    <svg viewBox="0 0 1000 500" class="world-map-svg">
+                        <!-- Simplified world map -->
+                        <defs>
+                            <radialGradient id="mapGradient">
+                                <stop offset="0%" stop-color="#1e293b" />
+                                <stop offset="100%" stop-color="#0f172a" />
+                            </radialGradient>
+                        </defs>
+                        
+                        <rect width="1000" height="500" fill="url(#mapGradient)" />
+                        
+                        <!-- Grid lines -->
+                        <g class="grid-lines" opacity="0.2">
+                            <line x1="0" y1="125" x2="1000" y2="125" stroke="#3b82f6" stroke-width="1"/>
+                            <line x1="0" y1="250" x2="1000" y2="250" stroke="#3b82f6" stroke-width="2"/>
+                            <line x1="0" y1="375" x2="1000" y2="375" stroke="#3b82f6" stroke-width="1"/>
+                            <line x1="250" y1="0" x2="250" y2="500" stroke="#3b82f6" stroke-width="1"/>
+                            <line x1="500" y1="0" x2="500" y2="500" stroke="#3b82f6" stroke-width="2"/>
+                            <line x1="750" y1="0" x2="750" y2="500" stroke="#3b82f6" stroke-width="1"/>
+                        </g>
+                        
+                        <!-- City Markers (will be added by JavaScript) -->
+                        <g id="cityMarkers"></g>
+                    </svg>
+                    
+                    <!-- Map Legend -->
+                    <div class="map-legend">
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: #10b981;"></span>
+                            <span>Good Air Quality</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: #f59e0b;"></span>
+                            <span>Moderate</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background: #ef4444;"></span>
+                            <span>Unhealthy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Selected City Info -->
+                <div class="city-info-card" id="cityInfoCard" style="display: none;">
+                    <div class="info-card-header">
+                        <h3 id="selectedCityName">City Name</h3>
+                        <button class="close-btn" id="closeInfoCard">✕</button>
+                    </div>
+                    <div class="info-card-content">
+                        <div class="info-item">
+                            <span class="info-label">📍 Coordinates:</span>
+                            <span class="info-value" id="cityCoords">--</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">🌡️ Climate:</span>
+                            <span class="info-value" id="cityClimate">Temperate</span>
+                        </div>
+                        <button class="view-details-btn" id="viewDetailsBtn">
+                            View Full Dashboard →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="map-stats-bar">
+            <div class="stat-box">
+                <div class="stat-icon">🌆</div>
+                <div class="stat-info">
+                    <span class="stat-number">26</span>
+                    <span class="stat-label">Cities Available</span>
+                </div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-icon">🌍</div>
+                <div class="stat-info">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Continents</span>
+                </div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-icon">📊</div>
+                <div class="stat-info">
+                    <span class="stat-number">Real-time</span>
+                    <span class="stat-label">Data Updates</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fixed Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <div class="nav-icon">🏠</div>
+            <span class="nav-label">Home</span>
+        </a>
+        <a href="map.html" class="nav-item active">
+            <div class="nav-icon">🗺️</div>
+            <span class="nav-label">Map</span>
+        </a>
+        <a href="dashboard.html" class="nav-item">
+            <div class="nav-icon">📊</div>
+            <span class="nav-label">Data</span>
+        </a>
+        <a href="charts.html" class="nav-item">
+            <div class="nav-icon">📈</div>
+            <span class="nav-label">Charts</span>
+        </a>
+    </nav>
+
+    <script src="map.js"></script>
+</body>
+</html>
+

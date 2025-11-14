@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NV Smart City Dashboard</title>
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="world-map-bg">
+        <div class="map-overlay"></div>
+        <div class="weather-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="landing-container">
+        <!-- Header -->
+        <header class="landing-header">
+            <div class="logo-section">
+                <div class="logo-icon">🌐</div>
+                <h1 class="main-title">NV Smart City Dashboard</h1>
+                <p class="subtitle">Real-time Global City Analytics</p>
+            </div>
+        </header>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-container">
+                <h2 class="search-title">Explore Any City in the World</h2>
+                <p class="search-description">Get real-time data on weather, air quality, traffic, and more</p>
+                
+                <form class="search-form" id="citySearchForm">
+                    <div class="search-input-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input 
+                            type="text" 
+                            id="cityInput" 
+                            class="search-input" 
+                            placeholder="Enter city name (e.g., London, New York, Tokyo)"
+                            list="citySuggestions"
+                            required
+                        >
+                        <datalist id="citySuggestions">
+                            <option value="London">
+                            <option value="New York">
+                            <option value="Tokyo">
+                            <option value="Paris">
+                            <option value="Delhi">
+                            <option value="Sydney">
+                            <option value="Mumbai">
+                            <option value="Singapore">
+                            <option value="Dubai">
+                            <option value="Los Angeles">
+                            <option value="Chicago">
+                            <option value="Toronto">
+                            <option value="Berlin">
+                            <option value="Madrid">
+                            <option value="Rome">
+                            <option value="Amsterdam">
+                            <option value="Barcelona">
+                            <option value="Seoul">
+                            <option value="Beijing">
+                            <option value="Shanghai">
+                            <option value="Hong Kong">
+                            <option value="Bangkok">
+                            <option value="Istanbul">
+                            <option value="Moscow">
+                            <option value="São Paulo">
+                            <option value="Mexico City">
+                        </datalist>
+                        <button type="submit" class="search-button">
+                            <span>Explore</span>
+                            <span class="arrow">→</span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Quick City Buttons -->
+                <div class="quick-cities">
+                    <span class="quick-label">Popular Cities:</span>
+                    <button class="city-pill" data-city="london">London</button>
+                    <button class="city-pill" data-city="newyork">New York</button>
+                    <button class="city-pill" data-city="tokyo">Tokyo</button>
+                    <button class="city-pill" data-city="paris">Paris</button>
+                    <button class="city-pill" data-city="delhi">Delhi</button>
+                    <button class="city-pill" data-city="sydney">Sydney</button>
+                </div>
+            </div>
+
+            <!-- Feature Cards -->
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon">🌤️</div>
+                    <h3>Weather Data</h3>
+                    <p>Real-time temperature, humidity, and conditions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Air Quality</h3>
+                    <p>Live AQI and pollutant measurements</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Energy & Traffic</h3>
+                    <p>City infrastructure analytics</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Visual Charts</h3>
+                    <p>Interactive data visualizations</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stat-item">
+                <div class="stat-number" id="citiesCount">150+</div>
+                <div class="stat-label">Cities Available</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Live APIs</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Data Categories</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Real-time Updates</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fixed Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="map.html" class="nav-item">
+            <div class="nav-icon">🗺️</div>
+            <span class="nav-label">Map</span>
+        </a>
+        <a href="dashboard.html" class="nav-item">
+            <div class="nav-icon">📊</div>
+            <span class="nav-label">Data</span>
+        </a>
+        <a href="charts.html" class="nav-item">
+            <div class="nav-icon">📈</div>
+            <span class="nav-label">Charts</span>
+        </a>
+    </nav>
+
+    <script src="landing.js"></script>
+</body>
+</html>
+
