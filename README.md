@@ -1,21 +1,21 @@
-# 🌆 Smart City Data Dashboard
+#  Smart City Data Dashboard
 
 A real-time interactive dashboard that visualizes smart city data from multiple public APIs. Features beautiful charts, live data updates, and a modern, responsive UI.
 
-## 🎯 Features
+##  Features
 
-### ✅ All Mandatory Requirements Met
+### All Mandatory Requirements Met
 
 - **Real-time Data Integration**: Fetches live data from multiple public APIs
 - **Multiple Data Sources**:
-  - 🌤️ **Weather Information**: Temperature, humidity, wind speed, pressure, and "feels like" temperature
-  - 🌍 **Air Quality Index (AQI)**: Real-time air pollution data including PM2.5, PM10, O₃, and NO₂
-  - ⚡ **Energy Consumption**: Visualized with dynamic bar charts showing hourly patterns
-  - 🚗 **Traffic Density**: Interactive doughnut chart with zone-specific traffic levels
-  - ♻️ **Waste Management**: Pie chart showing waste distribution (recycling, composting, landfill, energy)
-  - 📊 **Temperature Trends**: 24-hour temperature trend line chart
+  - **Weather Information**: Temperature, humidity, wind speed, pressure, and "feels like" temperature
+  - **Air Quality Index (AQI)**: Real-time air pollution data including PM2.5, PM10, O₃, and NO₂
+  - **Energy Consumption**: Visualized with dynamic bar charts showing hourly patterns
+  - **Traffic Density**: Interactive doughnut chart with zone-specific traffic levels
+  - **Waste Management**: Pie chart showing waste distribution (recycling, composting, landfill, energy)
+  -  **Temperature Trends**: 24-hour temperature trend line chart
 
-### 🎁 Bonus Features Implemented
+### Bonus Features Implemented
 
 - **Real-time Updates**: Auto-refresh every 5 minutes
 - **Multiple APIs**: Weather API + Air Quality API working together
@@ -24,7 +24,7 @@ A real-time interactive dashboard that visualizes smart city data from multiple 
 - **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
 - **Demo Mode**: Fallback demo data when APIs are unavailable
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
 - **Visualization**: Chart.js 4.4.0
@@ -32,14 +32,14 @@ A real-time interactive dashboard that visualizes smart city data from multiple 
   - OpenWeatherMap API (Weather Data)
   - OpenAQ API (Air Quality Data)
 
-## 📋 Prerequisites
+##  Prerequisites
 
 Before running the dashboard, you need:
 
 1. A modern web browser (Chrome, Firefox, Safari, or Edge)
 2. (Optional) OpenWeatherMap API Key for live weather data
 
-## 🚀 Setup Instructions
+##  Setup Instructions
 
 ### Step 1: Clone or Download
 
@@ -83,7 +83,7 @@ python3 -m http.server 8000
 # Then open: http://localhost:8000
 ```
 
-## 📱 How to Use
+##  How to Use
 
 1. **Select a City**: Use the dropdown menu in the header to choose a city
 2. **View Real-time Data**: All cards update automatically with the selected city's data
@@ -91,7 +91,7 @@ python3 -m http.server 8000
 4. **Monitor Status**: Green dots indicate live API connections
 5. **Auto-refresh**: Dashboard updates every 5 minutes automatically
 
-## 📊 Dashboard Components
+## Dashboard Components
 
 ### Weather Card
 - Current temperature with "feels like" value
@@ -123,7 +123,7 @@ python3 -m http.server 8000
 - Smooth curve visualization
 - Hourly temperature points
 
-## 🎨 UI Features
+##  UI Features
 
 - **Dark Theme**: Modern dark mode interface
 - **Smooth Animations**: Card hover effects and data transitions
@@ -131,14 +131,14 @@ python3 -m http.server 8000
 - **Color-Coded Data**: Intuitive color schemes for quick understanding
 - **Status Indicators**: Live pulse animations for active connections
 
-## 🔄 Data Updates
+##  Data Updates
 
 - **Automatic Refresh**: Every 5 minutes
 - **Manual Refresh**: Change city selection
 - **Smart Updates**: Pauses when tab is hidden to save resources
 - **Fallback Mode**: Uses demo data if APIs are unavailable
 
-## 📝 API Information
+##  API Information
 
 ### OpenWeatherMap API
 - **Endpoint**: Current Weather Data
@@ -150,7 +150,7 @@ python3 -m http.server 8000
 - **Rate Limit**: No authentication required
 - **Documentation**: [https://docs.openaq.org/](https://docs.openaq.org/)
 
-## 🌟 Key Features Checklist
+##  Key Features Checklist
 
 ✅ Uses at least one public API (actually uses 2!)  
 ✅ Visualizes data using Chart.js  
@@ -163,7 +163,7 @@ python3 -m http.server 8000
 ✅ Status indicators  
 ✅ Auto-refresh capability  
 
-## 🎯 Project Requirements Met
+##  Project Requirements Met
 
 All requirements from the assignment have been successfully implemented:
 
@@ -175,7 +175,7 @@ All requirements from the assignment have been successfully implemented:
 6. ✅ **Bonus - Real-time Updates**: Auto-refresh every 5 minutes
 7. ✅ **Bonus - Multiple APIs**: Weather + Air Quality APIs integrated
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### No Data Showing?
 - Check your internet connection
@@ -203,7 +203,7 @@ cursor city/
 └── README.md          # This file
 ```
 
-## 🚀 Future Enhancements
+##  Future Enhancements
 
 Potential features to add:
 - Historical data comparison
@@ -214,9 +214,6 @@ Potential features to add:
 - User preferences saving
 - Dark/Light theme toggle
 
-## 📜 License
-
-This project is open source and available for educational purposes.
 
 ## 👨‍💻 Development
 
